@@ -1,10 +1,18 @@
 # Cloud Inventory API
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/ysabsanchez/cloud-inventory-api)
-[![Version](https://img.shields.io/badge/version-0.2.0--alpha-orange.svg)](https://github.com/ysabsanchez/cloud-inventory-api)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/ysabsanchez/cloud-inventory-api)
+[![Release](https://img.shields.io/badge/release-v1.0--GA-success.svg)](https://github.com/ysabsanchez/cloud-inventory-api)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 A high-performance cloud inventory management microservice built for scalable, distributed enterprise operations.
+
+## Release Notes — Version 1.0.0 (General Availability)
+The `v1.0.0` release stabilizes core endpoints, provides production readiness, and establishes trunk-based delivery pipelines:
+- **Core Endpoints**: Fully validated `/health`, `/api/v1/inventory`, and `/api/v1/warehouses`.
+- **Feature Flag Architecture**: Integrated JSON-driven feature flag evaluation engine (`config.json`).
+- **Resilience**: Added error handling, logging instrumentation, and fallback routes.
+- **Trunk-Based Release Line**: Maintained strictly for production deployment and emergency cherry-picks.
 
 ## Overview
 The **Cloud Inventory API** provides centralized endpoints to register warehouses, track real-time stock levels, manage SKU metadata, and broadcast inventory delta events across distributed logistics services.
@@ -16,9 +24,7 @@ The **Cloud Inventory API** provides centralized endpoints to register warehouse
 - **Configuration Management**: JSON / YAML Environment Overrides
 - **Testing**: PyTest, Coverage.py
 
-## API Endpoints (v1.0 Alpha)
-
-The following core endpoints are currently available in the active preview:
+## API Endpoints (v1.0 Production)
 
 | Method | Endpoint | Description | Auth Required |
 | :--- | :--- | :--- | :--- |
@@ -31,16 +37,14 @@ The following core endpoints are currently available in the active preview:
 ```json
 {
   "status": "healthy",
-  "version": "0.2.0-alpha",
+  "version": "1.0.0",
   "database": "connected",
-  "timestamp": "2026-09-16T10:20:00Z"
+  "timestamp": "2026-09-16T10:25:00Z"
 }
 ```
 
 ## Configuration & Feature Flag Overrides
-*(Added based on PR Code Review feedback)*
-
-The application supports dynamic runtime feature flags loaded via `config.json` or external environment variables:
+The application supports dynamic runtime feature flags loaded via `config.json`:
 
 | Flag Name | Default | Description |
 | :--- | :--- | :--- |
@@ -76,4 +80,4 @@ python main.py
 ```
 
 ## Branching & Release Strategy
-This project follows **Trunk-Based Development** paired with short-lived feature branches and configuration-driven feature flags for seamless continuous integration and zero-downtime delivery.
+This project follows **Trunk-Based Development**. Releases are branched directly from `main` as short-lived release branches (`release/v1.0`), allowing rapid production hardening while active continuous integration continues unobstructed on the trunk.
