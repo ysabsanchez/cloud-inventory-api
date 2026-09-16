@@ -37,6 +37,17 @@ The following core endpoints are currently available in the active preview:
 }
 ```
 
+## Configuration & Feature Flag Overrides
+*(Added based on PR Code Review feedback)*
+
+The application supports dynamic runtime feature flags loaded via `config.json` or external environment variables:
+
+| Flag Name | Default | Description |
+| :--- | :--- | :--- |
+| `ENABLE_V2_INVENTORY_ENGINE` | `false` | Enables high-throughput async delta processing engine |
+| `BETA_ANALYTICS_EXPORT` | `true` | Allows export of warehouse telemetry to cloud storage |
+| `MAINTENANCE_MODE` | `false` | Safely routes requests to fallback read-only mirror |
+
 ## Getting Started
 
 ### Prerequisites
