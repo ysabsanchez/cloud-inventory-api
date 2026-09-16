@@ -1,0 +1,30 @@
+{
+  "environment": "production",
+  "version": "1.0.0",
+  "feature_flags": {
+    "ENABLE_V2_INVENTORY_ENGINE": {
+      "enabled": false,
+      "description": "High-throughput asynchronous delta processing engine for large warehouses",
+      "owner": "platform-team@company.com",
+      "rollout_percentage": 0
+    },
+    "ENABLE_REALTIME_TELEMETRY": {
+      "enabled": true,
+      "description": "Stream warehouse inventory telemetry metrics to central monitoring dashboard",
+      "owner": "sre-team@company.com",
+      "rollout_percentage": 100
+    },
+    "BETA_ANALYTICS_EXPORT": {
+      "enabled": true,
+      "description": "Export inventory turnover analytics in Apache Parquet format to S3",
+      "owner": "data-team@company.com",
+      "rollout_percentage": 50
+    },
+    "MAINTENANCE_MODE": {
+      "enabled": false,
+      "description": "Read-only maintenance banner and traffic throttling during migrations",
+      "owner": "ops-team@company.com",
+      "rollout_percentage": 0
+    }
+  }
+}
